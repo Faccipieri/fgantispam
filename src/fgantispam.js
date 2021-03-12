@@ -75,33 +75,24 @@
    */
   fgAspam.encryptForm = function(formName, fieldName) {
     var cryptform, email, emailHtml, encryptedMail, fieldShowEncryptedHtml, fieldShowEncryptedMail, i, radioObj, radioValue;
+		
     formName = formName || 'fgAspam';
-    fieldName = fieldName || 'cryptmail_email';
-    fieldShowEncryptedMail = 'cryptmail_cryptedmail';
-    fieldShowEncryptedHtml = 'cryptmail_html';
+    fieldName = fieldName || 'fg-cr-mail_email';
+    fieldShowEncryptedMail = 'fg-cr-mail_cryptedmail';
+    fieldShowEncryptedHtml = 'fg-cr-mail_html';
     cryptform = document.forms[formName];
-    email = cryptform[fieldName].value;
-    if (cryptform.cryptmail_email.value.length < 4) {
+		
+    email = cryptform[fieldName].value;	
+    if (email.length < 4) {
       return false;
     }
-    radioObj = cryptform.cryptmail_radio;
-    if (radioObj.length > 0) {
-      i = 0;
-      while (i < radioObj.length) {
-        radioValue = parseInt(radioObj[i].checked ? radioObj[i].value : void 0, 10);
-        i++;
-      }
-    } else {
-      radioValue = 0;
-    }
-    if (radioValue === 1) {
-      emailHtml = email.replace(/\./g, '<span class="crypt" aria-hidden="true">.</span>.<span class="crypt" aria-hidden="true">.</span>');
-      emailHtml = emailHtml.replace(/@/, '<span class="crypt" aria-hidden="true">.</span>@<span class="crypt" aria-hidden="true">.</span>');
-    } else {
+    
       emailHtml = email.replace(/\./g, ' [PUNTO] ');
       emailHtml = emailHtml.replace(/@/, ' [CHIOCCIOLA] ');
-    }
+			//alert(emailHtml) ;
+    
     encryptedMail = this.encrypt(email);
+		
     cryptform[fieldShowEncryptedMail].value = encryptedMail;
     cryptform[fieldShowEncryptedHtml].value = '<a href="javascript:' + this.encryptFn + '(\'' + encryptedMail + '\');">' + emailHtml + '</a>';
   };
