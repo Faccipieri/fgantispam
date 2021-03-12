@@ -20,7 +20,7 @@
   var fgAntiSpam, fgAspam;
   fgAntiSpam = function() {};
   fgAntiSpam.fn = fgAntiSpam.prototype = {
-    _version: '0.1.5',
+    _version: '1.0.0',
     encryptFn: 'fgAspam.linkDecrypt',
 
     /**
