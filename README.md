@@ -1,2 +1,6 @@
 # fgantispam
- Javascript per antispam email
+
+Guarda gli esempi.
+Fai prima
+Credimi
+

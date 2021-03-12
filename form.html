@@ -1,0 +1,70 @@
+<head>
+
+
+	
+
+</head>
+
+
+<body>
+
+
+<form id="fgAspam" name="cryptmail" action="post" class="ym-form" onsubmit="return false;">
+	<fieldset class="ym-columnar">
+		<legend>Convert an email address in a SPAM free link.</legend>
+		<div class="ym-fbox-text ym-fbox">
+			<label for="cryptmail_email">Email</label>
+			<input id="cryptmail_email" type="email" name="email" required placeholder="Email"/>
+		</div>
+		<div class="ym-fbox">
+			<span class="ym-label">Display option</span>
+			<div class="ym-fbox-wrap">
+				<div class="ym-fbox-check">
+					<input id="cryptmail_radio_1" type="radio" value="0" name="cryptmail_radio" maxlength="100" checked />
+					<label for="cryptmail_radio_1">Use [at] instead of @ and [dot] instead of .</label>
+				</div>
+				<div class="ym-fbox-check">
+					<input id="cryptmail_radio_2" type="radio" value="1" name="cryptmail_radio" />
+					<label for="cryptmail_radio_2">Use span Tags with the class <em>crypt</em> and invisible dot as wrap for @ and .</label>
+				</div>
+			</div>
+		</div>
+	</fieldset>
+	<fieldset class="transparent ym-columnar">
+		<div class="ym-fbox-button ym-fbox">
+			<button class="button en-lock" onclick="fgAspam.encryptForm()" >Encrypt Email</button>
+		</div>
+	</fieldset>
+	<fieldset>
+		<legend>Result</legend>
+		<div class="ym-columnar">
+			<div class="ym-fbox-text ym-fbox">
+				<label for="cryptmail_cryptedmail">Encrypted Email</label>
+				<input id="cryptmail_cryptedmail" type="text" name="cryptmail_cryptedmail" readonly />
+			</div>
+		</div>
+		<div class="ym-fbox-text ym-fbox">
+			<label for="cryptmail_html">Full HTML</label>
+			<textarea name="cryptmail_html" id="cryptmail_html" cols="30" rows="5" readonly></textarea>
+		</div>
+	</fieldset>
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="src/fgantispam.js"></script>
+
+</body>
+
+
+
